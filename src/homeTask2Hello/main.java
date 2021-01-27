@@ -1,4 +1,4 @@
-package homeTask3;
+package homeTask2Hello;
 
 public class main {
     public static void main(String[] args) {
