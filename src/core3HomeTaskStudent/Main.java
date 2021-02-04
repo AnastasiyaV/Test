@@ -9,8 +9,9 @@ import java.util.Dictionary;
 import static core3HomeTaskStudent.StudentsStorage.studentsStorage;
 
 public class Main extends Student {
-    public static int newRating;
-
+    public  int newRating = 0;
+    public  float averageRating = 0F;
+    int roundedAverageRating = 0;
 
     public static void main(String[] args) throws IOException {
         Student student1 = new Student("Bob", 50);
@@ -43,9 +44,11 @@ public class Main extends Student {
 
 
         /* простіший варіан передавати три рейтинги в метод (можна статичний) і ділити завжди на три)*/
-//        public static int averageRating() {
-//            averageRating = ((student1.getRating() + student2.getRating() + student3.getRating()) / 3);
-//        }
+        public static int averageRating() {
+            averageRating = ((student1.getRating() + student2.getRating() + student3.getRating()) / 3);
+            roundedAverageRating = Math.round(averageRating);
+            System.out.println(roundedAverageRating);
+        }
     }
 
 

@@ -12,7 +12,7 @@ public class Student {
     private String name;
     private int rating;
     static String betterStudent;
-    public static float averageRating;
+
     public static Student currentStudent;
 
     public String getName() {
