@@ -1,4 +1,4 @@
-package homeTask3Seasons;
+package core2HomeTaskSeasons;
 
 import java.io.BufferedReader;
 import java.io.IOException;

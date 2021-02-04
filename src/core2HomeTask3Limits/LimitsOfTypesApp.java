@@ -1,6 +1,5 @@
-package homeTask3Limits;
+package core2HomeTask3Limits;
 
-import homeTask3Seasons.SeasonEnum;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
