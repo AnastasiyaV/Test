@@ -20,21 +20,24 @@ public class Student {
     }
     public void setName(String name) {
         this.name = name;
-    }
+    } //should I delete setName? as the name is assigned in constructor
     public int getRating() {
         return rating;
     }
     public void setRating(int rating) {
         this.rating = rating;
-        String output = String.format("Student %s is assigned with the new rating %d ", this.name, rating);
-        System.out.println(output);
+        //String output = String.format("Student %s is assigned with the new rating %d ", this.name, rating);
+        //System.out.println(output);
+    }
+    public void changeRating (int newRating) throws IOException {
+        currentStudent.setRating(newRating);
     }
 
     public Student() {}
     public Student(String name, int rating) {
         this.name = name;
         this.rating = rating;
-        // //NullPointerException
+        studentsStorage.put(name, this); //this - NullPointerException
     }
     public Student(String name) {
         this.name = name;
@@ -55,13 +58,10 @@ public class Student {
     }
 
     public static Student getStudent(String name){
-        return studentsStorage.get(name);
+        return studentsStorage.get(name); //NullPointerException
     }
 
-    public void changeRating (int newRating) throws IOException {
-        currentStudent.setRating(newRating);
 
-    }
 
 
 }
