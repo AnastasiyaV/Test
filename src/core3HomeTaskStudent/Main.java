@@ -5,20 +5,18 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 
-public class Main extends Student {
+public class Main {
      static int roundedAverageRating = 0;
      static float averageRating;
      public  int newRating = 0;
-     public HashMap<String,Student> studentsStorage = new HashMap <String, Student> ();
-
+     public static HashMap<String,Student> studentsStorage = new HashMap <String, Student> ();
+     public static Student currentStudent;
 
     public static void main(String[] args) throws IOException {
         Student student1 = new Student("Bob", 50);
-        studentsStorage.put(student1.getName(), student1); //
+        studentsStorage.put(student1.getName(), student1); //Non-static field 'studentsStorage' cannot be referenced from a static context
         Student student2 = new Student("John", 90);
         Student student3 = new Student("Alice", 80);
-        //Student createdStudent = studentsStorage.get("Bob");
-
 
         System.out.println(student1.toString());
         System.out.println(student2.toString());
@@ -36,7 +34,7 @@ public class Main extends Student {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Please enter the student's name whose rating you want to set (Bob/John/Alice)");
         String name = new String(br.readLine());
-        currentStudent = Student.getStudent(name); //non-static method getStudent cannot be referenced from a static context
+        currentStudent = studentsStorage.get(name); //non-static method getStudent cannot be referenced from a static context
         System.out.println("Please enter the new rating you want to set (int from 1 to 100)");
         String newRatingString = br.readLine();
         int newRating = Integer.parseInt(newRatingString);
