@@ -1,23 +1,23 @@
 package core3HomeTaskStudent;
 
-import core2HomeTaskSeasons.SeasonEnum;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Dictionary;
-
-import static core3HomeTaskStudent.StudentsStorage.studentsStorage;
+import java.util.HashMap;
 
 public class Main extends Student {
-    public  int newRating = 0;
-    public  float averageRating = 0F;
-    int roundedAverageRating = 0;
+     static int roundedAverageRating = 0;
+     static float averageRating;
+     public  int newRating = 0;
+     public HashMap<String,Student> studentsStorage = new HashMap <String, Student> ();
+
 
     public static void main(String[] args) throws IOException {
         Student student1 = new Student("Bob", 50);
-        //studentsStorage.put(student1.getName(), student1);//Class not loaded : core3HomeTaskStudent.StudentsStorage
+        studentsStorage.put(student1.getName(), student1); //
         Student student2 = new Student("John", 90);
         Student student3 = new Student("Alice", 80);
+        //Student createdStudent = studentsStorage.get("Bob");
 
 
         System.out.println(student1.toString());
@@ -36,19 +36,18 @@ public class Main extends Student {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Please enter the student's name whose rating you want to set (Bob/John/Alice)");
         String name = new String(br.readLine());
-        currentStudent = Student.getStudent("name"); //is it OK that it is static?
+        currentStudent = Student.getStudent(name); //non-static method getStudent cannot be referenced from a static context
         System.out.println("Please enter the new rating you want to set (int from 1 to 100)");
         String newRatingString = br.readLine();
         int newRating = Integer.parseInt(newRatingString);
         currentStudent.changeRating(newRating);
 
 
-        /* простіший варіан передавати три рейтинги в метод (можна статичний) і ділити завжди на три)*/
-        public static int averageRating() {
-            averageRating = ((student1.getRating() + student2.getRating() + student3.getRating()) / 3);
-            roundedAverageRating = Math.round(averageRating);
-            System.out.println(roundedAverageRating);
-        }
+        averageRating = ((student1.getRating() + student2.getRating() + student3.getRating()) / 3);
+        roundedAverageRating = Math.round(averageRating);
+        System.out.println("averageRating = " + roundedAverageRating);
+
+
     }
 
 

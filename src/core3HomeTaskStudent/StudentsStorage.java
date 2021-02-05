@@ -1,7 +1,9 @@
 package core3HomeTaskStudent;
 
-import java.util.Dictionary;
+import java.util.HashMap;
+
 
 public class StudentsStorage {
-    public static Dictionary<String, Student> studentsStorage;
+    //HashMap <String,String> studentsStorage = new HashMap <String, String> ();
+
 }
