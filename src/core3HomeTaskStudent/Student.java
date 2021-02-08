@@ -22,7 +22,7 @@ public class Student {
     public Student(String name) {
         this.name = name;
         this.rating = 1; //OR SHOULD I USE SETTER HERE?
-        //studentsStorage.put(student1.getName(), student1);
+        //studentsStorage.put(StudentsStorage.student1.getName(), student1);
         //studentsStorage.put(name, this);
     }
 
