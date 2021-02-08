@@ -1,7 +1,7 @@
 package core3HomeTaskStudent;
 
 import java.io.IOException;
-
+import static core3HomeTaskStudent.StudentsStorage.studentsStorage;
 
 
 public class Student {
@@ -10,15 +10,19 @@ public class Student {
     static String betterStudent;
 
 
-    public Student() {}
+    public Student() {
+    }
+
     public Student(String name, int rating) {
         this.name = name;
         this.rating = rating;
         //studentsStorage.put(name, this);
     }
+
     public Student(String name) {
         this.name = name;
         this.rating = 1; //OR SHOULD I USE SETTER HERE?
+        //studentsStorage.put(student1.getName(), student1);
         //studentsStorage.put(name, this);
     }
 
@@ -30,16 +34,20 @@ public class Student {
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     } //should I delete setName? as the name is assigned in constructor
+
     public int getRating() {
         return rating;
     }
+
     public void setRating(int rating) {
         this.rating = rating;
     }
-    public void changeRating (int newRating) throws IOException {
+
+    public void changeRating(int newRating) throws IOException {
         Main.currentStudent.setRating(newRating);
         String output = String.format("Student %s is assigned with the new rating %d ", this.name, rating);
         System.out.println(output);
@@ -53,10 +61,9 @@ public class Student {
                 ']';
     }
 
-    public boolean betterStudent (Student student){
+    public boolean betterStudent(Student student) {
         return this.getRating() > student.getRating();
     }
-
 
 
 }

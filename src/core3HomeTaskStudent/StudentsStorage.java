@@ -4,6 +4,6 @@ import java.util.HashMap;
 
 
 public class StudentsStorage {
-    //HashMap <String,String> studentsStorage = new HashMap <String, String> ();
+    static HashMap<String, Student> studentsStorage = new HashMap<String, Student>();
 
 }
