@@ -3,20 +3,18 @@ package core3HomeTaskStudent;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.concurrent.TimeUnit;
+import java.util.HashMap;
+import java.util.Map;
 
-
-import static core3HomeTaskStudent.StudentsStorage.studentsStorage;
+import static core3HomeTaskStudent.StudentsWorker.*;
 
 public class Main {
-    static int roundedAverageRating = 0;
+    //static int roundedAverageRating = 0;
     static float averageRating;
     public static Student currentStudent;
 
     public static void main(String[] args) throws IOException {
-        Student student1 = new Student("Bob", 50);
-        Student student2 = new Student("John", 90);
-        Student student3 = new Student("Alice", 80);
+        Map<String, Student> studentsStorage = new HashMap<String, Student>();
         studentsStorage.put(student1.getName(), student1);
         studentsStorage.put(student2.getName(), student2);
         studentsStorage.put(student3.getName(), student3);
@@ -34,6 +32,9 @@ public class Main {
         System.out.println("Student2 is a better student than student3 = " + student2.betterStudent(student3));
         System.out.println("Student1 is a better student than student3 = " + student1.betterStudent(student3));
 
+        System.out.println("------- averageRating method: ");
+
+
         System.out.println("------- changeRating method: ");
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -44,6 +45,11 @@ public class Main {
             String newRatingString = br.readLine();
             int newRating = Integer.parseInt(newRatingString);
             currentStudent.changeRating(newRating);
+
+            averageRating = ((student1.getRating() + student2.getRating() + student3.getRating()) / studentsStorage.size());
+//            roundedAverageRating = Math.round(averageRating);
+//            System.out.println("New averageRating = " + roundedAverageRating);
+
         } catch (IOException e) {
             e.printStackTrace();
         } catch (NumberFormatException e) {
@@ -58,18 +64,10 @@ public class Main {
             e.printStackTrace();
         }
 
-        try {
-            TimeUnit.SECONDS.sleep(1);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        System.out.println("------- averageRating method: ");
-        averageRating = ((student1.getRating() + student2.getRating() + student3.getRating()) / studentsStorage.size());
-        roundedAverageRating = Math.round(averageRating);
-        System.out.println("averageRating = " + roundedAverageRating);
-
 
     }
+
+
 
 
 }

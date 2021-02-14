@@ -1,0 +1,7 @@
+Prepare small application which read data from one file(.txt file with several lines of first names and  last names), then put this data into one of the collections(arraylist, linkedlist, hashset). Sort data in this collection and write this data into another file.
+
+Description task:
+Read line -> put it to some collection (ArrayList) -> 
+When all lines will be in your collection sort them in Descending order (use Collections class for it) -> read your collection and write all lines to the new file.
+
+*make the same with treeSet
